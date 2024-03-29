@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": -33.6, "left": -77.3, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -44.86,
+      "left": -249.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -115, "left": -67.2, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay2", "top": -115, "left": 67.2, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": -190.3, "left": -154.4, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder2", "top": -219.1, "left": 66.4, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder3", "top": 78.5, "left": -202.4, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder4", "top": 68.9, "left": 104.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "oled1:SDA", "nano:A4", "purple", [ "v0" ] ],
+    [ "oled1:SCL", "nano:A5", "limegreen", [ "v0" ] ],
+    [ "nano:3", "relay1:IN", "green", [ "v0" ] ],
+    [ "nano:5", "relay2:IN", "yellow", [ "v0" ] ],
+    [ "relay2:GND", "relay1:GND", "black", [ "h0" ] ],
+    [ "encoder1:CLK", "nano:2", "gray", [ "h0" ] ],
+    [ "encoder1:DT", "nano:4", "violet", [ "h0" ] ],
+    [ "encoder1:SW", "nano:6", "blue", [ "h0" ] ],
+    [ "encoder2:CLK", "nano:7", "gold", [ "h0" ] ],
+    [ "encoder2:DT", "nano:8", "orange", [ "h0" ] ],
+    [ "encoder2:SW", "nano:9", "#8f4814", [ "h0" ] ],
+    [ "encoder3:CLK", "nano:10", "green", [ "h0" ] ],
+    [ "encoder3:DT", "nano:11", "#8f4814", [ "h0" ] ],
+    [ "encoder3:SW", "nano:12", "orange", [ "h0" ] ],
+    [ "nano:13", "encoder4:CLK", "gold", [ "v0" ] ],
+    [ "encoder4:DT", "nano:A0", "blue", [ "h0" ] ],
+    [ "encoder4:SW", "nano:A1", "violet", [ "h0" ] ],
+    [ "encoder1:GND", "nano:GND.1", "black", [ "h0" ] ],
+    [ "nano:GND.1", "encoder3:GND", "black", [ "v0" ] ],
+    [ "encoder4:GND", "nano:GND.1", "black", [ "h0" ] ],
+    [ "encoder2:GND", "nano:GND.1", "black", [ "h0" ] ],
+    [ "oled1:GND", "nano:GND.1", "black", [ "v0" ] ],
+    [ "nano:5V", "oled1:VCC", "red", [ "v0" ] ],
+    [ "relay2:VCC", "nano:5V", "red", [ "h0" ] ],
+    [ "relay1:VCC", "nano:5V", "red", [ "h0" ] ],
+    [ "nano:5V", "encoder1:VCC", "red", [ "v0" ] ],
+    [ "encoder2:VCC", "nano:5V", "red", [ "h0" ] ],
+    [ "nano:5V", "encoder3:VCC", "red", [ "v0" ] ],
+    [ "encoder4:VCC", "nano:5V", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
